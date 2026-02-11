@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define endl '\n'
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    
+    int t; cin>>t;
+    while(t--)
+    {
+        int n; cin>>n;
+        int a[n];
+        for(int i=0;i<n;i++) cin>>a[i];
+
+        if(!(is_sorted(a,a+n)))
+        {
+            cout<<0<<endl;
+        }
+        else
+        {
+            int minDiff=INT_MAX;
+            for(int i=0;i<n-1;i++)
+            {
+                if(a[i+1]-a[i]<minDiff)
+                {
+                    minDiff=a[i+1]-a[i];
+                }
+            }
+            cout<<minDiff/2 +1 <<endl;
+        }
+    }
+    
+    return 0;
+}
